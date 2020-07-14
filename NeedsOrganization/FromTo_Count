@@ -1,0 +1,8 @@
+sPos = 1000000;
+ePos = 10000000;
+
+timeToStart = marker.key(1).time;
+timeToEnd = marker.key(2).time;
+
+Math.floor(ease(time, timeToStart, timeToEnd, sPos, ePos)%1000);
+

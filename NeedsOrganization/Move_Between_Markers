@@ -1,0 +1,43 @@
+myScore = thisComp.layer("0_Total").text.sourceText;
+
+timeToStart = marker.key(1).time;
+timeToEnd = marker.key(2).time;
+
+thisNum = parseInt(thisLayer.name);
+totalNames = parseInt(thisComp.layer("PlayerCount").text.sourceText) - 1;
+
+
+
+sY = thisComp.layer("sPos").transform.position[1];
+eY = thisComp.layer("ePos").transform.position[1];
+
+
+
+newRank = 0;
+allScores = [	thisComp.layer("0_Total").text.sourceText,
+				thisComp.layer("1_Total").text.sourceText,
+				thisComp.layer("2_Total").text.sourceText,
+				thisComp.layer("3_Total").text.sourceText,
+				thisComp.layer("4_Total").text.sourceText,
+				thisComp.layer("5_Total").text.sourceText,
+				thisComp.layer("6_Total").text.sourceText,
+				thisComp.layer("7_Total").text.sourceText,
+				thisComp.layer("8_Total").text.sourceText,
+				thisComp.layer("9_Total").text.sourceText];
+
+
+for (i = 0; i < allScores.length; i++)
+{
+	if (i != thisNum && myScore > allScores[i])
+	{
+		newRank ++;
+	}
+}
+
+sPos = [thisComp.layer("sPos").transform.position[0], thisComp.layer("sPos").transform.position[1] + (thisNum * (eY - sY)/totalNames)];
+
+ePos = [thisComp.layer("sPos").transform.position[0], thisComp.layer("sPos").transform.position[1] + (newRank * (eY - sY)/totalNames)];
+
+
+
+ease(time, timeToStart, timeToEnd, sPos, ePos);

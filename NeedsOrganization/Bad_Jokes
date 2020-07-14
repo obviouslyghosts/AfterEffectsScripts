@@ -1,0 +1,37 @@
+// Eliminate all text containing "*"
+text.sourceText.replace(/(^\s*)|(\s*$)/g,"")
+
+
+// Animate based on Markers
+// Marker Layer
+m = thisComp.layer("MARKERS")
+n=0;
+if (m.marker.numKeys > 0){
+  n = m.marker.nearestKey(time).index;
+  if (m.marker.key(n).time > time) n--;
+}
+
+if (n > 0) m.marker.key(n).comment else  ""
+
+
+// Range Selector To color letters
+j = comp("JOKE_PUNCHLINEB").layer("PunchlineB").text.sourceText.toString()
+k = j.split(" ") 
+bold_s = -2
+bold_e = -2
+for (i = k.length-1; i >= 0; i--)
+{
+	if (k[i][0] == "*") {bold_s = i}
+	if (k[i][(k[i].length-1)] == "*") {bold_e = i+1}
+}
+bold_s
+bold_e
+
+
+// Rectangle Size
+x=comp("JOKE_PUNCHLINEB").layer("PunchlineB").sourceRectAtTime().width + 280;
+y=comp("JOKE_PUNCHLINEB").layer("PunchlineB").sourceRectAtTime().height + 65;
+
+[x,y]
+// Rectangle position
+x=content("Rectangle 1").content("Rectangle Path 1").size/2 + 200;

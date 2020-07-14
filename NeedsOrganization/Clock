@@ -1,0 +1,35 @@
+iO = outPoint;
+if( CHECKBOX CONTROL == true ) { iO = inPoint; }
+
+countspeed = 1;
+clockStart = 0;
+decimals = 1;
+
+function times(n){
+  //if (n < 10) return "0" + n else
+  return "" + n
+}
+ 
+clockTime = clockStart + countspeed*(time - iO);
+ 
+if (clockTime < 0){
+  minus = "-";
+  clockTime = -clockTime;
+}else{
+  minus = "";
+}
+ 
+t = Math.floor(clockTime);
+h = Math.floor(t/3600);
+minTens = Math.floor(((t%3600)/600)/10);
+minSing = Math.floor(((t%3600)/60)%10);
+
+secTens = Math.floor((t%60)/10);
+secSing = Math.floor((t%60)%10);
+
+
+ms = clockTime.toFixed(decimals).substr(-decimals);
+//minus + times(h) + ":" + times(min) + ":" + times(sec) + "." + ms
+
+//times(min) + ":" + times(sec) + "." + ms
+times(minSing)

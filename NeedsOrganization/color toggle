@@ -1,0 +1,12 @@
+s = [218, 61, 72, 0]/255;
+w = [0, 184, 255, 0]/255;
+
+switch(Math.round(thisComp.layer("Null 1").effect("Slider Control")("Slider"))){
+case 1: s;
+break;
+case 2: w;
+break;
+}
+
+j=""
+j.repeat(4)
