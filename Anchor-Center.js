@@ -1,4 +1,4 @@
-a = thisComp.layer("MIDDLE").sourceRectAtTime();
+a = thisLayer.sourceRectAtTime();
 height = a.height;
 width = a.width;
 top = a.top;
