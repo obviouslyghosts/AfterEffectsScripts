@@ -33,3 +33,18 @@ if ( widest > w )
 }
 
 [v,v];
+
+
+// based on height
+h = thisComp.layer("CONTROLS").effect("WIDTH")("Slider");
+tallest = thisLayer.sourceRectAtTime().height;
+
+
+if ( tallest > h )
+{
+	v = ( h / tallest ) * 100;
+} else {
+	v = 100;
+}
+
+[v,v];
